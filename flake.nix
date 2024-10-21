@@ -39,6 +39,7 @@
           system = {
             defaults = {
               dock.autohide = true;
+              dock.persistent-apps = [ ];
             };
             keyboard = {
               enableKeyMapping = true;
