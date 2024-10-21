@@ -28,12 +28,25 @@
 
             pkgs.mkalias # for making gui applications work
           ];
+
           homebrew = {
             enable = true;
             casks = [
               "firefox"
             ];
           };
+
+          system = {
+            defaults = {
+              dock.autohide = true;
+            };
+            keyboard = {
+              enableKeyMapping = true;
+              remapCapsLockToControl = true;
+            };
+          };
+
+          networking.hostName = "hoatzin";
 
           # make gui applications exist in finder
           # https://gist.github.com/elliottminns/211ef645ebd484eb9a5228570bb60ec3
