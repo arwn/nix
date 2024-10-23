@@ -37,6 +37,7 @@
             enable = true;
             casks = [
               "firefox"
+              "logseq"
             ];
           };
 
