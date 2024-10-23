@@ -47,6 +47,9 @@
             defaults = {
               dock.autohide = true;
               dock.persistent-apps = [ ];
+              finder.ShowPathbar = true;
+              finder.ShowStatusBar = true;
+              finder.FXPreferredViewStyle = "clmn";
             };
             keyboard = {
               enableKeyMapping = true;
