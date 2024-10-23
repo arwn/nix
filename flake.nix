@@ -40,6 +40,8 @@
             ];
           };
 
+          fonts.packages = with pkgs; [ commit-mono iosevka ];
+
           system = {
             defaults = {
               dock.autohide = true;
