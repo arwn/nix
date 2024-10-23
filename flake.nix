@@ -7,6 +7,8 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -16,6 +18,7 @@
       nixpkgs,
       nix-homebrew,
       determinate,
+      home-manager,
     }:
     let
       configuration =
@@ -24,8 +27,6 @@
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
-            pkgs.vim
-            pkgs.jujutsu
             pkgs.fish
 
             pkgs.mkalias # for making gui applications work
@@ -113,6 +114,16 @@
               enableRosetta = true;
               user = "arwn";
             };
+          }
+          home-manager.darwinModules.home-manager 
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            users.users.arwn.home = /Users/arwn;
+            users.users.arwn.name = "arwn";
+            home-manager.users.arwn = import ./home.nix;
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
           }
         ];
       };
